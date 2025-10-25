@@ -8,39 +8,40 @@ class Memory(commands.Cog):
         self.bot = bot
         self.remind_loop.start()
 
-        @tasks.loop(seconds=15)
-        async def remind_loop(self):
-            await self.bot.wait_until_ready()
-            now_str = datetime.datetime.now().isoformat()
-            connection = sqlite3.connect("bot.db")
-            cursor = connection.cursor()
-            try:
-                cursor.execute("SELECT * FROM reminders WHERE remind_time <= ?", (now_str,))
-                reminders = cursor.fetchall()
-                for row in reminders:
-                    reminder_id = row[0]
-                    user_id = int(row[1])
-                    channel_id = int(row[2])
-                    message = row[4]
-                    print(f"Reminding! ID: {reminder_id} to {user_id}")
-                    try:
-                        user = await self.bot.fetch_user(user_id)
-                        if user:
-                            await user.send(f"Reminding: {message}")
+    @tasks.loop(seconds=15)
+    async def remind_loop(self):
+        await self.bot.wait_until_ready()
+        now_str = datetime.datetime.now().isoformat()
+        connection = sqlite3.connect("bot.db")
+        cursor = connection.cursor()
+        try:
+            cursor.execute("SELECT * FROM reminders WHERE remind_time <= ?", (now_str,))
+            reminders = cursor.fetchall()
+            for row in reminders:
+                reminder_id = row[0]
+                user_id = int(row[1])
+                channel_id = int(row[2])
+                message = row[4]
+                print(f"Reminding! ID: {reminder_id} to {user_id}")
+                try:
+                    user = await self.bot.fetch_user(user_id)
+                    if user:
+                        await user.send(f"Reminding: {message}")
+                    else:
+                        channel = self.bot.get_channel(channel_id)
+                        if channel:
+                            await channel.send(f"Reminding <@{user_id}>: {message}")
                         else:
-                            channel = self.bot.get_channel(channel_id)
-                            if channel:
-                                await channel.send(f"Reminding <@{user_id}>: {message}")
-                            else:
-                                print(f"I couldn't find a channel with ID: {channel_id}.")
-                        cursor.execute("DELETE FROM reminders WHERE id = ?", (reminder_id,))
-                    except Exception as e:
-                        print(f"An error occurred {reminder_id}: {e}")
-                connection.commit()
-            except Exception as e:
-                print(f"An error occurred: {e}")
-            finally:
-                connection.close()
+                            print(f"I couldn't find a channel with ID: {channel_id}.")
+                    cursor.execute("DELETE FROM reminders WHERE id = ?", (reminder_id,))
+                except Exception as e:
+                    print(f"An error occurred {reminder_id}: {e}")
+            connection.commit()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        finally:
+            connection.close()
+
     @commands.command()
     async def thx(self, ctx, user: discord.Member = None):
         print(f"Command /thx executed by: {ctx.author}")
