@@ -65,12 +65,34 @@ Projekt ten został zbudowany modułowo z użyciem systemu "Cogs", aby zapewnić
 
 ## 🛠️ Użyte Technologie
 
-* **Python 3.10+**
-* **discord.py** (Do interakcji z API Discorda i tworzenia Cogs)
-* **sqlite3** (Do trwałego zapisu danych dla przypomnień i karmy)
-* **google-generativeai** (Do integracji z API Google Gemini)
-* **aiohttp** (Do asynchronicznych zapytań API pogody i słownika)
-* **asyncio** (Do obsługi zadań w tle, np. pętli przypomnień)
+## 🛠️ Użyte Technologie
+
+**Logika Bota & API:**
+* Python 3.10+
+* discord.py (API Discorda, Cogs)
+* google-generativeai (API Google Gemini)
+* aiohttp (Asynchroniczne API pogody/słownika)
+* asyncio (Zadania w tle, np. pętla przypomnień)
+
+**Baza Danych:**
+* sqlite3 (Trwała pamięć dla karmy i przypomnień)
+
+**Infrastruktura & Wdrożenie (DevOps):**
+* Oracle Cloud (OCI) VM (Hosting)
+* Linux (Ubuntu) (System serwera)
+* Git (Kontrola wersji)
+* SSH (Zarządzanie serwerem)
+* tmux (Utrzymanie procesu w tle)
+
+---
+
+## 🚀 Wdrożenie
+
+Bot jest wdrożony i działa w trybie 24/7 na darmowym serwerze **Oracle Cloud (OCI) Virtual Machine** (Kształt `VM.Standard.E2.1.Micro` "Always Free").
+
+* **System Operacyjny:** Serwer działa na systemie **Linux (Ubuntu)**.
+* **Proces:** Wdrożenie obejmowało ręczną konfigurację serwera przez **SSH**, instalację środowiska (`python3-venv`, `pip`), sklonowanie repozytorium przez `Git` oraz konfigurację zmiennych środowiskowych.
+* **Uruchomienie:** Aplikacja działa w tle jako trwała sesja zarządzana przez **`tmux`**.
 
 ---
 
@@ -93,3 +115,12 @@ Projekt ten został zbudowany modułowo z użyciem systemu "Cogs", aby zapewnić
     ```
 6.  Uruchom bota:
     `python main.py`
+
+---
+
+## ✉️ Kontakt
+
+Masz pytania, sugestie lub chcesz porozmawiać o współpracy?
+
+* **Discord:** `suigetsu`
+* **E-mail:** `szymonw0107 [at] gmail [dot] com`

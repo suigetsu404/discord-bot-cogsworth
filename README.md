@@ -65,12 +65,32 @@ This project is built modularly using the "Cogs" system to ensure clean and scal
 
 ## 🛠️ Technology Stack
 
-* **Python 3.10+**
-* **discord.py** (For Discord API interaction and Cog management)
-* **sqlite3** (For persistent data storage: reminders and karma)
-* **google-generativeai** (For the Google Gemini API integration)
-* **aiohttp** (For asynchronous API requests to weather and dictionary APIs)
-* **asyncio** (For handling background tasks, e.g., the reminder loop)
+**Bot Logic & APIs:**
+* Python 3.10+
+* discord.py (Discord API, Cogs)
+* google-generativeai (Google Gemini API)
+* aiohttp (Async API requests for weather/dictionary)
+* asyncio (Background tasks, e.g., reminder loop)
+
+**Database:**
+* sqlite3 (Persistent storage for karma and reminders)
+
+**Infrastructure & Deployment (DevOps):**
+* Oracle Cloud (OCI) VM (Hosting)
+* Linux (Ubuntu) (Server OS)
+* Git (Version Control)
+* SSH (Server Management)
+* tmux (Persistent session management)
+
+---
+
+## 🚀 Deployment
+
+This bot is deployed and runs 24/7 on an **Oracle Cloud (OCI) Virtual Machine** (VM.Standard.E2.1.Micro "Always Free" tier).
+
+* **Operating System:** The server runs on **Linux (Ubuntu)**.
+* **Process:** The deployment involved manually configuring the server via **SSH**, setting up the environment (`python3-venv`, `pip`), cloning the repository with `Git`, and configuring environment variables.
+* **Execution:** The application runs in the background as a persistent session managed by **`tmux`**.
 
 ---
 
@@ -93,3 +113,12 @@ This project is built modularly using the "Cogs" system to ensure clean and scal
     ```
 6.  Run the bot:
     `python main.py`
+
+---
+
+## ✉️ Contact
+
+Feel free to reach out if you have any questions, suggestions, or collaboration inquiries.
+
+* **Discord:** `suigetsu`
+* **E-mail:** `szymonw0107 [at] gmail [dot] com`
