@@ -4,9 +4,6 @@ import urllib.parse
 import google.generativeai as genai
 import aiohttp
 
-from Bot.cogs.memory import Memory
-
-
 class Api(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
