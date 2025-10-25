@@ -12,7 +12,7 @@ class Memory(commands.Cog):
     async def remind_loop(self):
         await self.bot.wait_until_ready()
         now_str = datetime.datetime.now().isoformat()
-        connection = sqlite3.connect("bot.db")
+        connection = sqlite3.connect("../data/bot.db")
         cursor = connection.cursor()
         try:
             cursor.execute("SELECT * FROM reminders WHERE remind_time <= ?", (now_str,))
