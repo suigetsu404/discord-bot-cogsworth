@@ -24,7 +24,7 @@ bot = commands.Bot(command_prefix='?', intents=intents)
 
 # launcher
 async def main():
-    connection = sqlite3.connect("bot.db")
+    connection = sqlite3.connect("data/bot.db")
     cursor = connection.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS karma

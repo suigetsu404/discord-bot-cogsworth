@@ -14,7 +14,7 @@ class Memory(commands.Cog):
             await ctx.send("You cannot thx yourself.")
             return
         try:
-            connection = sqlite3.connect("bot.db")
+            connection = sqlite3.connect("../data/bot.db")
             cursor = connection.cursor()
             cursor.execute(f"INSERT OR IGNORE INTO karma (user_id, points) VALUES (?, 0)", (user.id,))
             cursor.execute(f"UPDATE karma SET points = points + 1 WHERE user_id = ?", (user.id,))
@@ -30,7 +30,7 @@ class Memory(commands.Cog):
         if user is None:
             user = ctx.author
         try:
-            connection = sqlite3.connect("bot.db")
+            connection = sqlite3.connect("../data/bot.db")
             cursor = connection.cursor()
             cursor.execute(f"SELECT points FROM karma WHERE user_id = ?", (user.id,))
             result = cursor.fetchone()
@@ -59,7 +59,7 @@ class Memory(commands.Cog):
                 return
             date_time = datetime.datetime.now() + datetime.timedelta(seconds=parsed_time)
             date_time_str = date_time.isoformat()
-            connection = sqlite3.connect("bot.db")
+            connection = sqlite3.connect("../data/bot.db")
             cursor = connection.cursor()
             cursor.execute("INSERT INTO reminders (user_id, channel_id, remind_time, message) VALUES (?, ?, ?, ?)",
                            (ctx.author.id, ctx.channel.id, date_time_str, message))
