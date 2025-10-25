@@ -1,4 +1,6 @@
 [🇬🇧 English version](./README.md) | [🇵🇱 Wersja polska](./README_PL.md)
+
+[Add to Discord](https://discord.com/oauth2/authorize?client_id=1430896075933352017&permissions=76866&integration_type=0&scope=bot+applications.commands)
 ***
 # Cogsworth - A Multipurpose Discord Bot
 
