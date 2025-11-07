@@ -99,7 +99,7 @@ This bot is deployed and runs 24/7 on an **Oracle Cloud (OCI) Virtual Machine** 
 ## 🚀 How to Run
 
 1.  Clone the repository:
-    `git clone https://github.com/YourName/discord-bot-cogsworth.git`
+    `git clone https://github.com/suigetsu404/discord-bot-cogsworth.git`
 2.  Navigate to the project directory:
     `cd discord-bot-cogsworth`
 3.  Create and activate a virtual environment:
