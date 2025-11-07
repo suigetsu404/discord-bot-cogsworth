@@ -101,7 +101,7 @@ Bot jest wdrożony i działa w trybie 24/7 na darmowym serwerze **Oracle Cloud (
 ## 🚀 Jak Uruchomić
 
 1.  Sklonuj repozytorium:
-    `git clone https://github.com/TwojaNazwa/discord-bot-cogsworth.git`
+    `git clone https://github.com/suigetsu404/discord-bot-cogsworth.git`
 2.  Przejdź do folderu projektu:
     `cd discord-bot-cogsworth`
 3.  Stwórz i aktywuj wirtualne środowisko:
